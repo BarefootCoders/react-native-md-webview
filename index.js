@@ -36,7 +36,6 @@ export default React.createClass({
   },
 
   render() {
-    console.log('start!');
     const { thisProps, webViewProps } = this.filterProps();
     const markdownHtml = this.markdownHtml();
     const html = defaultHtml
