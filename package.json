@@ -9,7 +9,7 @@
     "react-native": "*"
   },
   "scripts": {
-    "compile": "babel lib/ -d dist/",
+    "compile": "babel --presets es2015,react lib/ -d dist/",
     "prepublish": "npm run compile"
   },
   "dependencies": {
