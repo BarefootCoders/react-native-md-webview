@@ -6,11 +6,12 @@
   "license": "MIT",
   "author": "thoughtbot",
   "peerDependencies": {
+    "react": "*",
     "react-native": "*"
   },
   "scripts": {
     "compile": "./node_modules/babel-cli/bin/babel.js --presets es2015,react lib/ -d dist/",
-    "prepublish": "npm run compile"
+    "prepublish": "yarn compile"
   },
   "dependencies": {
     "lodash.omit": "^4.1.0",
