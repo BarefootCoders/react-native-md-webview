@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactNative = require('react-native');
 
 var _reactNative2 = _interopRequireDefault(_reactNative);
@@ -34,7 +38,7 @@ exports.default = _reactNative2.default.createClass({
   displayName: 'lib',
 
   propTypes: Object.assign({}, _reactNative.WebView.PropTypes, {
-    children: _reactNative2.default.PropTypes.string.isRequired
+    children: _propTypes2.default.string.isRequired
   }),
 
   getDefaultProps: function getDefaultProps() {
@@ -50,19 +54,18 @@ exports.default = _reactNative2.default.createClass({
     return { thisProps: thisProps, webViewProps: webViewProps };
   },
   markdownHtml: function markdownHtml() {
-    var _props = this.props;
-    var children = _props.children;
-    var showdownOptions = _props.showdownOptions;
+    var _props = this.props,
+        children = _props.children,
+        showdownOptions = _props.showdownOptions;
 
     var converter = new _showdown2.default.Converter(showdownOptions);
 
     return converter.makeHtml(this.props.children);
   },
   render: function render() {
-    var _filterProps = this.filterProps();
-
-    var thisProps = _filterProps.thisProps;
-    var webViewProps = _filterProps.webViewProps;
+    var _filterProps = this.filterProps(),
+        thisProps = _filterProps.thisProps,
+        webViewProps = _filterProps.webViewProps;
 
     var markdownHtml = this.markdownHtml();
     var html = _defaultHtml2.default.replace('$body', markdownHtml).replace('$css', this.props.css);
